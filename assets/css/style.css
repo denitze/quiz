@@ -11,3 +11,11 @@ button {
     border-radius: 5px;
     border:none;
 }
+
+.green-glow {
+    background: lime;
+}
+
+.red-glow {
+    background: red;
+}

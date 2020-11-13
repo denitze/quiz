@@ -63,36 +63,54 @@ let data=[
 
 const content = document.getElementById("content")
 
+function game() {
+    let btn;
+    for (i=0; i<data.length; i++) {
 
-// Image
-// h2
-// buttons 4x (je nachdem wie viele antwortmöglichkeiten es gibt)
+        
+
+        let section = document.createElement("section");
+        let img = document.createElement("img");
+        img.src = data[i].url;
+    
+        
+        let h2 =document.createElement("h2");
+        let h2Text = document.createTextNode(data[i].question)
+        h2.append(h2Text);
+        section.append(img)
+        section.append(h2)
+        
+        
+
+            for (j=0; j<data[i].choice.length; j++) {
+                btn = document.createElement("button")
+                let btnText = document.createTextNode(data[i].choice[j])
+                
+            
+       
+
+                btn.append(btnText)
+                section.append(btn)  
+            }
+
+        content.append(section)
+        btn.addEventListener("click", () => {
+                
+            if(data[i].choice[j]== data[i].answer) {
+            btn.classList.add("green-glow")
+            }  else {
+                btn.classList.add("red-glow")
+            }
+
+        })
+
+        }
 
 
-// let h2 =document.createElement("h2");
-
-
-
-
-for (i=0; i<data.length; i++) {
-let section = document.createElement("section");
-let img = document.createElement("img");
-img.src = data[i].url;
-
-let h2 =document.createElement("h2");
-let h2Text = document.createTextNode(data[i].question)
-h2.append(h2Text);
-section.append(img)
-section.append(h2)
-
-    for (j=0; j<data[i].choice.length; j++) {
-        let btn = document.createElement("button")
-        let btnText = document.createTextNode(data[i].choice[j])
-        btn.append(btnText)
-        section.append(btn)
+  
+        
     }
 
-content.append(section)
 
-}
 
+game()
